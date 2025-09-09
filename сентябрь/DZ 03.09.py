@@ -33,24 +33,27 @@ class CommonPatients:
         return list(common_patients)
 
 class Queue:
-    id = 0
+    id_doc = 0
+    queues = dict()
 
-    def __init__(self, doctor, patients):
+    def __init__(self, doctor):
         self.doctor = doctor
-        self.patients = patients
-        self.id = id + 1
+        self.patients = list()
+        Queue.id_doc += 1
+        self.id_doc = Queue.id_doc
         self.notes = dict()
+        Queue.queues[self.id_doc] = self.patients
 
-    # def create_id(self):
-    #     if not id in self.notes:
-# Создаёт айди доктора
+    def add_patients(self, patient):
+        self.patients.append(patient)
+        self.notes[self.id_doc] = self.patients
+        return self.notes
 
-    # def create_dict(self, doctor, patients):
-    #     patients = []
-    #     [id.doc][patients]
-    #
+    def get_patients(self):
+        return [patient.name for patient in  self.patients]
 
-
+    def get_queue(self):
+        return [f"{self.id_doc} | {self.get_patients()}" for id_doc, patients in self.notes.items()]
 
 
 """
@@ -58,11 +61,6 @@ class Queue:
 значение - экземпляр класса 
 
 """
-
-
-
-
-
 
 doc_1 = Doctor("docT")
 doc_2 = Doctor("docP")
@@ -88,3 +86,15 @@ print("Все пациенты Второго: ", doc_2.get_patient())
 
 CD = CommonPatients(doc_1, doc_2)
 print("Общие пациенты: ", CD.common_patients())
+
+queue_doc1 = Queue(doc_1)
+queue_doc2 = Queue(doc_2)
+queue_doc1.add_patients(patient_1)
+queue_doc1.add_patients(patient_3)
+queue_doc1.add_patients(patient_5)
+queue_doc2.add_patients(patient_2)
+queue_doc2.add_patients(patient_4)
+
+print("Очередь 1 доктора: ", queue_doc1.get_queue())
+print("Очередь 2 доктора: ", queue_doc2.get_queue())
+
