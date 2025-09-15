@@ -3,11 +3,12 @@ import time
 def count_time(func):
     def count(*args):
         start = time.time()
-        x = func(*args)
+        function = func(*args)
         end = time.time()
         res = end - start
         res2 = res * 1000
-        return res2
+        print(f"Время выполнения функции {res2} милисекунд")
+        return function
     return count
 
 class MutableString:
@@ -15,7 +16,7 @@ class MutableString:
         self.string = list(word)
         self.elem = elem
 
-    # @count_time
+    @count_time
     def replace_elem(self, index):
         self.string[index] = self.elem
         return ''.join(self.string)
@@ -23,9 +24,5 @@ class MutableString:
 winter = MutableString("Winter", "k")
 print("Замена 2 индекса слова 'Winter' на букву 'k': \n", winter.replace_elem(2))
 
-# end = time.time()
-# res = end - start
-# res2 = res * 1000
-# print(res2)
 
 
