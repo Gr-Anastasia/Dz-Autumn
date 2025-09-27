@@ -1,6 +1,11 @@
 from Cat import Cat
+from Timer import count_time
 
 class BigCat(Cat):
+    def __init__(self):
+        pass
+
+    @count_time
     def eat(self):
         print("Я большой кот, я ем")
 
@@ -9,3 +14,6 @@ class BigCat(Cat):
 
     def run(self):
         print("Я большой кот, я бегаю")
+
+    def cati(self):
+        pass
