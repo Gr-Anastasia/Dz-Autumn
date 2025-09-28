@@ -9,9 +9,11 @@ class SmallCat(Cat):
     def eat(self):
         print("Я маленький котёнок, я ем")
 
+    @count_time
     def sleep(self):
         print("Я маленький котёнок, я сплю")
 
+    @count_time
     def run(self):
         print("Я маленький котёнок, я бегаю")
 
