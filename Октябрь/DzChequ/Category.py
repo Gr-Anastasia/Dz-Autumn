@@ -1,7 +1,14 @@
 class Category:
-    __category_id = 0
+    category_id = 0
 
     @classmethod
     def autoincrement(cls):
-        cls.__category_id += 1
-        return cls.__category_id
+        cls.category_id += 1
+        return cls.category_id
+
+    def __init__(self, name):
+        self.__category_id = Category.autoincrement()
+        self.name = name
+
+
+# cosmetic = Category("Cosmetic")
