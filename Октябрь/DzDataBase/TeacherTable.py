@@ -1,92 +1,63 @@
-from Student import nastya_stu
-from Department import natural_sc
-from Group import it_1
+from MixinTable import MixinTable
+from Teacher import juli_tch
+from Department import technical_sc
 
 
-class TeacherTable:
+class TeacherTable(MixinTable):
     def __init__(self, name):
+        super().__init__(name)
         self.name = name
-        self.teachers = list()
+        self.teachers = self.elems
 
     def add_teacher(self, teacher):
-        if teacher in self.teachers:
-            raise ValueError("Такой преподаватель уже есть")
-        else:
-            self.teachers.append(teacher)
-        return self.teachers
+        return self.add_elem(teacher)
 
     def update_teacher_surname(self, teacher, new_surname):
-        for teacher in self.teachers:
-            teacher.surname = new_surname
-        return teacher.surname
+        for teach in self.teachers:
+            if teach == teacher:
+                teacher._surname = new_surname
+            return teacher._surname
 
     def update_teacher_phone(self, teacher, new_phone):
-        for teacher in self.teachers:
-            teacher.phone = new_phone
-        return teacher.surname
+        for teach in self.teachers:
+            if teach == teacher:
+                teacher._phone = new_phone
+            return teacher._phone
 
-    # def update_teacher_academic_degree(self, teacher, new_phone):
-    #     for teacher in self.teachers:
-    #         teacher.phone = new_phone
-    #     return teacher.surname
+    def update_teacher_academic_degree(self, teacher, new_academic_degree):
+        for teach in self.teachers:
+            if teach == teacher:
+                teacher.academic_degree = new_academic_degree
+            return teacher.academic_degree
 
-    # def update_teacher_department(self, teacher, new_group):
-    #     for teacher in self.teachers:
-    #         teacher.group = new_group
-    #     return teacher.group
-
-    def update_teacher_number(self, teacher, new_number):
-        for teacher in self.teachers:
-            teacher.number_student = new_number
-        return teacher.number_student
-
-    def add_subject(self, teacher , new_subject):
-
-        # for student in self.students:
-        #     student.number_student = new_number
-        # return student.number_student
-
-        return
-
+    def update_teacher_department(self, teacher, new_department):
+        for teach in self.teachers:
+            if teach == teacher:
+                teacher.department = new_department
+            return teacher.department
 
     def del_teacher(self, teacher):
-        self.teachers.remove(teacher)
-        return self.teachers
+        return self.del_elem(teacher)
 
-"""
-приватность 
-абдейт вызвает сет нейм
-"""
+teacher_table1 = TeacherTable(name="Biologi")
 
+print(juli_tch.get_surname())
+print(juli_tch.get_phone())
+print(juli_tch.academic_degree)
+print(juli_tch.department)
 
+teacher_table1.add_teacher(juli_tch)
+teacher_table1.update_teacher_surname(teacher=juli_tch,
+                                      new_surname="Ivanova")
+teacher_table1.update_teacher_phone(teacher=juli_tch,
+                                      new_phone="000000000000")
+teacher_table1.update_teacher_department(teacher=juli_tch,
+                                         new_department=technical_sc)
+teacher_table1.update_teacher_academic_degree(teacher=juli_tch,
+                                              new_academic_degree="Professor")
 
+print("Новая", juli_tch.get_surname())
+print("Новая", juli_tch.get_phone())
+print("Новая", juli_tch.academic_degree)
+print("Новая", juli_tch.department)
 
-# student_table1 = StudentTable(name="first course")
-#
-# print(nastya_stu.surname)
-# print(nastya_stu.phone)
-# print(nastya_stu.group)
-#
-# student_table1.add_student(nastya_stu)
-# student_table1.update_student_surname(student=nastya_stu,
-#                                       new_surname="Mur")
-# student_table1.update_student_phone(student=nastya_stu,
-#                                       new_phone="000000000000")
-# student_table1.update_student_group(student=nastya_stu,
-#                                     new_group=it_1)
-#
-# print(nastya_stu.surname)
-# print(nastya_stu.phone)
-# print(nastya_stu.group)
-
-
-
-
-
-
-
-
-
-
-
-# добавление, обновление, удаление?

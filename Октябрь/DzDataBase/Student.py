@@ -17,9 +17,9 @@ class Student:
                  faculty, specialty, group, patronymic = None, subjects = None, budget = True):
         self.__id = Student.autoincrement()
         self.name = name
-        self.surname = surname
-        self.patronymic = patronymic
-        self.phone = phone
+        self._surname = surname
+        self._patronymic = patronymic
+        self._phone = phone
         self.number_student = number_student
         self.budget = budget
         self.faculty = faculty
@@ -34,7 +34,11 @@ class Student:
         return self.__id
 
     def get_surname(self):
-        return self.surname
+        return self._surname
+
+    def get_phone(self):
+        return self._phone
+
 
 
 nastya_stu = Student(name ="Nastya",
@@ -47,7 +51,6 @@ nastya_stu = Student(name ="Nastya",
                     subjects=[{"subject" : biology, "teacher" : juli_tch, "average" :4.7}],
                    patronymic="Andreevna")
 
+nastya_stu.get_surname()
+nastya_stu.get_phone()
 
-
-
-# print(nastya_stu.faculty, nastya_stu.specialty, nastya_stu.group, nastya_stu.subjects)
