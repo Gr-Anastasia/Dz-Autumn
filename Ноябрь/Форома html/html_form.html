@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+ <meta charset="utf-8">
+  <title>Анкета для друзей</title>
+  <link rel="stylesheet" href="stylecss_form.css">
+
+</head>
+
+<body>
+	<div>
+		<h1>Анкета для друзей</h1>
+	</div>
+	<form action="/signup" method="POST">
+		<label for="username">Имя:</label>
+		<input type="text" id="username" name="username" required> <br>
+		
+		<label for="lastname">Фамилия:</label>
+		<input type="text" id="lastname" name="lastname" required>  <br>
+
+		<label for="nickname">Как Вас называют друзья?:</label>
+		<input type="text" id="nickname" name="nickname" required>  <br>
+
+		<label for="email">Электронная почта:</label>
+		<input type="email" id="email" name="email" required>  <br>
+
+		<label for="birth">Выберите дату рождения:</label>
+		<input type="date" id="birth" name="birth" required>  <br>
+
+		<label for="animal">Есть ли у Вас животное?:</label>  <br>
+		<p><input type="radio" id="animal" name="animal" value="yes">Да ✅</p>
+		<p><input type="radio" id="animal" name="animal" value="no">Нет ❌</p>
+		
+		<label for="color">Выберите любимый цвет:</label>
+		<input type="color" id="color" name="color">  <br>
+
+		<label for="game">Перечислите любимые игры:</label>
+		<textarea id="game" name="game"></textarea> <br>
+
+		<label for="move">Перечислите любимые фильмы/сериалы:</label>
+		<textarea id="move" name="move"></textarea> <br>
+
+
+		<label for="season">Выберите любимое время года:</label>  <br>
+		<p><input type="checkbox" id="seasonWinter" name="season" value="Winter">Зима ❄️</p>
+		<p><input type="checkbox" id="seasonSpring" name="season" value="Spring">Весна 🍃</p>
+		<p><input type="checkbox" id="seasonSummer" name="season" value="Summer">Лето ☀️</p>
+		<p><input type="checkbox" id="seasonAutumn" name="season" value="Autumn">Осень 🍂</p>
+
+		<select size="12" multiple name="zodiac[]">
+		<option disabled>Выберите знак зодиака</option>
+		<option value="Овен">Овен</option>
+		<option value="Телец">Телец</option>
+		<option value="Близнецы">Близнецы</option>
+		<option value="Рак">Рак</option>
+		<option value="Лев">Лев</option>
+		<option value="Дева">Дева</option>
+		<option value="Весы">Весы</option>
+		<option value="Скорпион">Скорпион</option>
+		<option value="Стрелец">Стрелец</option>
+		<option value="Козерог">Козерог</option>
+		<option value="Водолей">Водолей</option>
+		<option value="Рыбы">Рыбы</option>
+		</select></p>
+
+		<label for="foto">Загрузите фото</label>
+		<input type="file" id="foto" name="foto" accept="image/*">  <br>		
+
+		<button type="submit">Отправить анкету</button>
+	</form>
+	
+</body>
+</html>

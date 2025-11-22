@@ -1,0 +1,27 @@
+body {
+    background-color: #9db9e8;
+    font-family: Comic Sans MS, Courier, sans-serif;
+	font-size: 16px;
+    }
+
+h1 {
+		color: #b22a5c;
+		font-size: 36px;
+		font-family: Comic Sans MS, Courier, sans-serif;
+		text-align: center;
+    }
+
+form {
+	color: #234410;
+	margin: 10px;
+	padding: 10px;
+	line-height: 2;
+}
+
+select {
+	background-color: #f1c5d6;
+    font-family: Comic Sans MS, Courier, sans-serif;
+	font-size: 16px;
+	width: 300px;
+}
+
